@@ -1,0 +1,14 @@
+----------- Foundation Icons ---------------------
+In Gemfile add :
+  gem 'foundation-icons-sass-rails'
+
+In terminal :
+    Bundle install
+
+In app/assets/stylesheets/application.css.scss add :
+    @import 'foundation-icons';
+
+In Your html page add :
+    <i class="fi-[icon]"></i>
+ ----------- Foundation Icons ---------------------
+
