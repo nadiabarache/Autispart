@@ -1,4 +1,6 @@
 AutismeApp::Application.routes.draw do
+  resources :users
+
   #get "presentation/home"
   get "presentation/inscription"
   # The priority is based upon order of creation: first created -> highest priority.

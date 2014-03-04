@@ -47,3 +47,4 @@ end
 
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
+gem 'bcrypt-ruby', '3.1.2'
