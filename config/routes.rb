@@ -1,6 +1,7 @@
 AutismeApp::Application.routes.draw do
-  
-  get "users/new"
+  resources :users
+  match '/signup',  to: 'users#new',            via: 'get'
+  #get "users/new"
   #get "presentation/home"
   get "presentation/inscription"
   # The priority is based upon order of creation: first created -> highest priority.

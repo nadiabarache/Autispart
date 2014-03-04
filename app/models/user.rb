@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
    before_save { self.email = email.downcase }
 	validates :pseudo, presence: true  ,length: { maximum: 50 }
-	validates :name, presence: true    ,ength: { maximum: 50 }
+	validates :name, presence: true    ,length: { maximum: 50 }
 	validates :prenom, presence: true  ,length: { maximum: 50 }
 	validates :sexe, presence: true
 	validates :age, presence: true
