@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305190354) do
+ActiveRecord::Schema.define(version: 20140305204358) do
+
+  create_table "infopersos", force: true do |t|
+    t.string   "pseudo"
+    t.integer  "age"
+    t.string   "sexe"
+    t.string   "ville"
+    t.string   "departement"
+    t.string   "pays"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "pseudo"

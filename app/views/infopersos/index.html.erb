@@ -1,17 +1,11 @@
 
-
-
-
-
-
- 
  <div id="admin_page" style= "margin-top:-4px;">
- 	
+  
 
- 	<%= link_to(root_path) do %>
+  <%= link_to(root_path) do %>
                  <%= image_tag("child32.png", alt: "Promo Image") %> 
-				
-            <% end %>	
+        
+            <% end %> 
 
 <%= link_to(root_path) do %>
                  <%= image_tag("edit32.png", alt: "Promo Image") %> 
@@ -28,26 +22,60 @@
 <%= link_to(root_path) do %>
                  <%= image_tag("event32.png", alt: "Promo Image") %> 
             <% end %>
-<%= link_to(session_path, method: "delete" ) do %>
-                 <%= image_tag("off32.png", alt: "Promo Image") %> 
-            <% end %>
-         
-      <strong> Bonjour <%= @user.pseudo %> </strong>    
+      
  </div> 
+ <h1>Listing infopersos</h1>
 
-<dl class="tabs" data-tab>
+
+    
+
+      
+      
+    
+  
+
+  
+    <% @infopersos.each do |infoperso| %>
+      <strong>
+        <%= infoperso.pseudo %>
+        <%= infoperso.age %>
+        <%= infoperso.sexe %>
+        <%= infoperso.ville %>
+        <%= infoperso.departement %>
+        <%= infoperso.pays %>
+        </strong>
+        <%= link_to 'Show', infoperso %>
+        <%= link_to 'Edit', edit_infoperso_path(infoperso) %>
+        <%= link_to 'Destroy', infoperso, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <dl class="tabs" data-tab>
   <dd class="active"><a href="#panel2-1">Mes information</a></dd>
   <dd><a href="#panel2-2">Mon quotidien</a></dd>
 </dl>
 <div class="tabs-content">
   <div class="content active" id="panel2-1">
-    <p>First panel content goes here...</p>
+    <p><%= infoperso.pseudo %></p>
   </div>
   <div class="content" id="panel2-2">
     <p>Second panel content goes here...</p>
   </div>
   
 </div>
+
+      
+
+    <% end %>
+  
+
+
+<br>
+
+<%= link_to 'New Infoperso', new_infoperso_path %>
+
+
+
+
+
+
 
 
 

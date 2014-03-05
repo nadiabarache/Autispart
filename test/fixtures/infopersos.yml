@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pseudo: MyString
+  age: 1
+  sexe: MyString
+  ville: MyString
+  departement: MyString
+  pays: MyString
+
+two:
+  pseudo: MyString
+  age: 1
+  sexe: MyString
+  ville: MyString
+  departement: MyString
+  pays: MyString

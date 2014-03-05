@@ -1,4 +1,6 @@
 AutismeApp::Application.routes.draw do
+  resources :infopersos
+
   get "users/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

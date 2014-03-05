@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pseudo:</strong>
+  <%= @infoperso.pseudo %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @infoperso.age %>
+</p>
+
+<p>
+  <strong>Sexe:</strong>
+  <%= @infoperso.sexe %>
+</p>
+
+<p>
+  <strong>Ville:</strong>
+  <%= @infoperso.ville %>
+</p>
+
+<p>
+  <strong>Departement:</strong>
+  <%= @infoperso.departement %>
+</p>
+
+<p>
+  <strong>Pays:</strong>
+  <%= @infoperso.pays %>
+</p>
+
+<%= link_to 'Edit', edit_infoperso_path(@infoperso) %> |
+<%= link_to 'Back', infopersos_path %>
