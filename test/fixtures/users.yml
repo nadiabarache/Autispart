@@ -2,22 +2,8 @@
 
 one:
   pseudo: MyString
-  name: MyString
-  prenom: MyString
   email: MyString
-  sexe: MyString
-  age: 1
-  ville: MyString
-  departement: MyString
-  pays: MyString
 
 two:
   pseudo: MyString
-  name: MyString
-  prenom: MyString
   email: MyString
-  sexe: MyString
-  age: 1
-  ville: MyString
-  departement: MyString
-  pays: MyString

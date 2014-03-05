@@ -11,24 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304222452) do
+ActiveRecord::Schema.define(version: 20140305183348) do
 
   create_table "users", force: true do |t|
     t.string   "pseudo"
-    t.string   "name"
-    t.string   "prenom"
     t.string   "email"
-    t.string   "sexe"
-    t.integer  "age"
-    t.string   "ville"
-    t.string   "departement"
-    t.string   "pays"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
-    t.string   "remember_token"
   end
-
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
