@@ -9,7 +9,36 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+  
+
+<% if signed_in? %>
+<%= link_to "Déconnexion", signout_path, method: "delete" %>
+<% else %>
+
+<%= link_to "Se connecter", signin_path , style: 'margin-left: 1098px' %>
+ <!-- <div style="padding-top : 14px;"> <a href="#" style="
+    margin-left: 1098px;
+    
+    
+"> Se connecter</a>
+</div> -->
+<% end -%>
+
+
+
+
+
+
+
+
   </head>
+
+
+
+
+
+
+
 
   <body>
 
