@@ -19,7 +19,19 @@
 
 
 body{ background-image : url(mainbaby4.jpg);background-repeat: no-repeat;}
-
+#admin_page{
+   
+    top: 33px;
+    padding: 9px 6% 31px 344px;
+    margin: -64px 0 0px -140px;
+    background:  #F30B23;
+    border: 1px solid  #F30B23;
+    -moz-box-shadow:
+        0pt 3px 8px rgba(105, 108, 109,  0.7), 
+        0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    
+     
+}
 
 #login{
    
