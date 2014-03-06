@@ -11,18 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305204358) do
+ActiveRecord::Schema.define(version: 20140306180145) do
 
   create_table "infopersos", force: true do |t|
     t.string   "pseudo"
     t.integer  "age"
     t.string   "sexe"
     t.string   "ville"
-    t.string   "departement"
+    t.integer  "departement"
     t.string   "pays"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "infos", force: true do |t|
+    t.integer  "age_diagnostic"
+    t.string   "pays_diagnostic"
+    t.string   "autism_type"
+    t.string   "trouble_psycho"
+    t.string   "other_trouble"
+    t.integer  "infoperso_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "infos", ["infoperso_id"], name: "index_infos_on_infoperso_id"
 
   create_table "users", force: true do |t|
     t.string   "pseudo"

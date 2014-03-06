@@ -1,34 +1,220 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="small-2 large-4 columns">
+    <p>
+      <strong>Pseudo:</strong>
+      <%= @infoperso.pseudo %>
+    </p>
 
-<p>
-  <strong>Pseudo:</strong>
-  <%= @infoperso.pseudo %>
-</p>
+    <p>
+      <strong>Age:</strong>
+      <%= @infoperso.age %>
+    </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @infoperso.age %>
-</p>
+    <p>
+      <strong>Sexe:</strong>
+      <%= @infoperso.sexe %>
+    </p>
+    <p>
+      <strong>Ville:</strong>
+      <%= @infoperso.ville %> (<%= @infoperso.departement %>). <%= @infoperso.pays %>
+    </p>
+  </div>
+  
+  
+</div>
 
-<p>
-  <strong>Sexe:</strong>
-  <%= @infoperso.sexe %>
-</p>
+<!--............................................ Info du patients ..........................-->
 
-<p>
-  <strong>Ville:</strong>
-  <%= @infoperso.ville %>
-</p>
 
-<p>
-  <strong>Departement:</strong>
-  <%= @infoperso.departement %>
-</p>
+<div class="row">
+  <div class="small-4 large-6 columns">
 
-<p>
-  <strong>Pays:</strong>
-  <%= @infoperso.pays %>
-</p>
+  <dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel2-1">Infos patients</a></dd>
+  <dd><a href="#panel2-2">Humour du jour</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
 
-<%= link_to 'Edit', edit_infoperso_path(@infoperso) %> |
-<%= link_to 'Back', infopersos_path %>
+            <h2>Information</h2>
+            <% @infoperso.infos.each do |comment| %>
+              <p>
+                   <strong>age de diagnostic</strong>
+                   <%= comment.age_diagnostic %>
+                 </p>
+
+                 <p>
+                   <strong>pays du diagnostic </strong>
+                   <%= comment.pays_diagnostic %>
+                 </p>
+
+                 <p>
+                   <strong>Type d'autisme</strong>
+                   <%= comment.autism_type %>
+                 </p>
+                 <p>
+                   <strong>Troubles psy </strong>
+                   <%= comment.trouble_psycho %>
+                 </p>
+                 <p>
+                   <strong>Autres troubles </strong>
+                   <%= comment.other_trouble %>
+                 </p>
+
+                 <p>
+                   <%= link_to 'Destroy ', [comment.infoperso, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' } %>
+                 </p>
+            <% end %>
+
+
+
+
+
+    <p>
+      <%= form_for([@infoperso, @infoperso.infos.build]) do |f| %>
+    <p>
+      <%= f.label :age_diagnostic , "Age de diagnostic" %><br />
+      <%= f.text_field :age_diagnostic %>
+    </p>
+    <p>
+      <%= f.label :pays_diagnostic , "Pays du diagnostic" %><br />
+      <%= f.text_area :pays_diagnostic %>
+    </p>
+
+    <p>
+      <%= f.label :autism_type , "Type d'autisme" %><br />
+      <%= f.select :autism_type, [
+        [" ", ""], 
+        ["F840-autisme infantile", "F840-autisme infantile"], 
+        ["F841-autisme atypique",   "F841-autisme infantile"], 
+        ["F842-Syndrome de Rett",   "F842-Syndrome de Rett"],
+        ["F843-Autre trouble désintégratif de l'enfance","F843-Autre trouble désintégratif de l'enfance"],
+        ["F844-Hyperactivité associée à un retard mental et à des mouvements stéréotypés", "F844-Hyperactivité associée à un retard mental et à des mouvements stéréotypés"],
+        ["F845-Syndrome de d'Asperger",   "F845-Syndrome de d'Asperger"],
+        ["F848-Autres troubles envahissants du développmenent",   "F848-Autres troubles envahissants du développmenent"],
+        ["F849-Troubles envahissants du développmenent,sans précision ",   "F849- Troubles envahissant du développmenent , sans précision"]
+        ] %>
+      </p>
+
+      <p>
+        <%= f.label :trouble_psycho , "Troubles du developpment psychologique"%><br />
+
+        <%= f.select :trouble_psycho, [
+          [" ", ""], 
+
+
+          ["F800-Trouble spécifique de l'acquisition de l'articulation", "F800-Trouble spécifique de l'acquisition de l'articulation"], 
+
+          ["F801-Trouble de l'acquisition du langage,  de type expressif",   "F801-Trouble de l'acquisition du langage,  de type expressif"],
+
+          ["F802-Trouble de l'acquisition du langage,  de type réceptif",   "F802-Trouble de l'acquisition du langage,  de type réceptif"], 
+
+          ["F803-Aphasie acquise avec épilepsie[Landau-Kleffner]",   "F802-Aphasie acquise avec épilepsie[Landau-Kleffner]"],
+
+          ["F808-Autres troubles du développement de la parole et du langage",   "F808-Autres troubles du développement de la parole et du langage"],
+
+          ["F809-Troubles du developpment de la parole et du langage, sans précision",   "F809-Troubles du developpment de la parole et du langage, sans précision"],
+
+          ["F810-Trouble de l'acquisition de la lecture",   "F810-Trouble de l'acquisition de la lecture"],
+
+          ["F811-Trouble de l'acquisition de l'orthographe",   "F811-Trouble de l'acquisition de l'orthographe"],
+          ["F812-Trouble de l'acquisition de l'arithmétique",   "F812-Trouble de l'acquisition de l'arithmétique"],
+
+          ["F813-Trouble mixte des acquisitions scolaire",   "F813-Trouble mixte des acquisitions scolaire"],
+
+          ["F818-Autres troubles du développement",   "F818-Autres troubles du développement"],
+
+          ["F819-Trouble du developpment, des acquisitions scolaires, sans précision",   "F819-Trouble du developpment, des acquisitions scolaires, sans précision"],
+
+          ["F82-Troubles spécifique du développement moteur",   "F82-Troubles spécifique du développement moteur"],
+
+          ["F83-Troubles spécifiques mixte du développement",   "F83-Troubles spécifiques mixte du développement"],
+
+          ["F840- Autisme infantile",   "F-Autres Autisme infantile"],
+
+          ["F841-Autisme atypique",   "F841-Autisme atypique"],
+
+          ["F842-Syndrome de Rett",   "F842-Syndrome de Rett"],
+          ["F843-Autre trouble désintégratif de l'enfance",   "F843-Autre trouble désintégratif de l'enfance"],
+
+          ["F844-Hyperactivité associée à un retard mental et à des mouvements",   "F844-Hyperactivité associée à un retard mental et à des mouvements"],
+
+          ["F845-Syndrome d'Asperger",   "F845-Syndrome d'Asperger"],
+
+          ["F849-Troubles envahissants du développement",   "F849-Troubles envahissants du développement"],
+          ["F88-Autres troubles du développement psychologique",   "F88-Autres troubles du développement psychologique"],
+
+          ["F849-Trouble du développment psychologique",   "F849-Trouble du développment psychologique"],
+          ]%>
+
+        </p>
+        <p>
+          <%= f.label :other_trouble , "Autres troubles"%><br />
+
+
+          <%= f.select :other_trouble, [
+            [" ", ""], 
+
+            ["F000-Démence de la maladie d'Alzheimer, à début précoce(G30.0)", "F000-Démence de la maladie d'Alzheimer, à début précoce(G30.0)"], 
+            ["F001-Démence de la maladie d'Alzheimer, à début tardif(G30.1)", "F000-Démence de la maladie d'Alzheimer, à début tardif(G30.1)"], 
+            ["F002-Démence de la maladie d'Alzheimer, forme atypique ou mixte(G30.8)", "F000-Démence de la maladie d'Alzheimer, forme atypique ou mixte(G30.8)"],
+            ["F009-Démence de la maladie d'Alzheimer, sans précision(G30.9)", "F000-Démence de la maladie d'Alzheimer, sans précision(G30.9)"], 
+
+            ["F010-Démence vasculaire à début aigu", "F000-Démence vasculaire à début aigu"], 
+            ["F011-Démence vasculaire par infractus multiples", "F011-Démence vasculaire par infractus multiples"], 
+            ["F010-Démence vasculaire à début aigu", "F000-Démence vasculaire à début aigu"], 
+            ["F012-Démence vasculaire sous-corticale", "F012-Démence vasculaire sous corticale"], 
+            ["F013-Démence vasculaire mixte, corticale et sous-corticale", "F013-Démence vasculaire mixte, corticale et sous-corticale"], 
+            ["F018-Autres formes de démence vasculaire ", "F018-Autres formes de démence vasculaire "], 
+            ["F019-Démence vasculaire, sans précision", "F019-Démence vasculaire, sans précision"],
+
+
+
+            ["F021-Démence de la maladie de Creutzfeld-Jakob(A81.0)", "F021-Démence de la maladie de Creutzfeld-Jakob(A81.0)"], 
+            ["F022-Démence de la maladie de Huntington(G10)", "F022-Démence de la maladie de Huntington(G10)"], 
+            ["F023-Démence de la maladie de Parkinson(G20)", "F023-Démence de la maladie de Parkinson(G20)"], 
+            ["F024-Démence de la maladie de la maladie due au VIH(B22.0)", "F024-Démence de la maladie de la maladie due au VIH(B22.0)"], 
+
+            ["F028-Démence en cours d'autres maladies classées ailleurs", "F028-Démence en cours d'autres maladies classées ailleurs"], 
+            ["F03-Démence, sans précision", "F03-Démence, sans précision"], 
+
+
+            ["F009-Démence de la maladie d'Alzheimer, sans précision(G30.9)", "F000-Démence de la maladie d'Alzheimer, sans précision(G30.9)"], 
+
+            ["F009-Démence de la maladie d'Alzheimer, sans précision(G30.9)", "F000-Démence de la maladie d'Alzheimer, sans précision(G30.9)"], 
+
+            ["F009-Démence de la maladie d'Alzheimer, sans précision(G30.9)", "F000-Démence de la maladie d'Alzheimer, sans précision(G30.9)"], 
+
+            ["F009-Démence de la maladie d'Alzheimer, sans précision(G30.9)", "F000-Démence de la maladie d'Alzheimer, sans précision(G30.9)"],  
+
+            ]%>
+          </p>
+
+          <p>
+            <%= f.submit %>
+          </p>
+
+    <% end -%>
+
+    </p>
+  </div>
+  <div class="content" id="panel2-2">
+    <p>Second panel content goes here...</p>
+  </div>
+</div>
+
+
+
+
+
+    
+
+
+
+
+
+      <%= link_to 'Edit', edit_infoperso_path(@infoperso) %> |
+      <%= link_to 'Back', infopersos_path %>

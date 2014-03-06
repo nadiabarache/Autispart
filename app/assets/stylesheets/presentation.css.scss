@@ -18,7 +18,10 @@
 
 
 
-body{ background-image : url(mainbaby4.jpg);background-repeat: no-repeat;}
+body{ 
+ background-image : url(mainbaby4.jpg);
+ background-repeat: no-repeat;
+ background-attachment : fixed;}
 #admin_page{
    
     top: 33px;

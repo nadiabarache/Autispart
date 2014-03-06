@@ -1,5 +1,56 @@
 
- <div id="admin_page" style= "margin-top:-4px;">
+<div class="row">
+  <div class="small-2 large-4 columns" style="color :green">
+    
+    <%= image_tag("child128.png", alt: "Promo Image") %> 
+  </div>
+  
+  
+</div>
+ 
+
+ <% @infopersos.each do |infoperso| %>
+      <strong>
+        <%= infoperso.pseudo %> <br>
+        <%= infoperso.age %>   <br>
+        <%= infoperso.sexe %>  <br>
+        <%= infoperso.ville %> <br>
+        <%= infoperso.departement %> <br>
+        <%= infoperso.pays %>
+        </strong>
+        <%= link_to 'Show', infoperso %>
+        <%= link_to 'Edit', edit_infoperso_path(infoperso) %>
+        <%= link_to 'Destroy', infoperso, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel2-1">Mes information</a></dd>
+  <dd><a href="#panel2-2">Mon quotidien</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
+    <p> Lorem ipsum </p>
+  </div>
+  <div class="content" id="panel2-2">
+    <p>Second panel content goes here...</p>
+  </div>
+  
+</div>
+
+      
+
+    <% end %>
+  
+
+
+<br>
+
+<%= link_to 'New Infoperso', new_infoperso_path %>
+
+
+ 
+
+
+
+ <!-- <div id="admin_page" style= "margin-top:-4px;">
   
 
   <%= link_to(root_path) do %>
@@ -23,7 +74,7 @@
                  <%= image_tag("event32.png", alt: "Promo Image") %> 
             <% end %>
       
- </div> 
+ </div>  -->
  <h1>Listing infopersos</h1>
 
 
@@ -35,42 +86,7 @@
   
 
   
-    <% @infopersos.each do |infoperso| %>
-      <strong>
-        <%= infoperso.pseudo %>
-        <%= infoperso.age %>
-        <%= infoperso.sexe %>
-        <%= infoperso.ville %>
-        <%= infoperso.departement %>
-        <%= infoperso.pays %>
-        </strong>
-        <%= link_to 'Show', infoperso %>
-        <%= link_to 'Edit', edit_infoperso_path(infoperso) %>
-        <%= link_to 'Destroy', infoperso, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <dl class="tabs" data-tab>
-  <dd class="active"><a href="#panel2-1">Mes information</a></dd>
-  <dd><a href="#panel2-2">Mon quotidien</a></dd>
-</dl>
-<div class="tabs-content">
-  <div class="content active" id="panel2-1">
-    <p><%= infoperso.pseudo %></p>
-  </div>
-  <div class="content" id="panel2-2">
-    <p>Second panel content goes here...</p>
-  </div>
-  
-</div>
-
-      
-
-    <% end %>
-  
-
-
-<br>
-
-<%= link_to 'New Infoperso', new_infoperso_path %>
-
+    
 
 
 

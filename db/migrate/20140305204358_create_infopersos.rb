@@ -5,7 +5,7 @@ class CreateInfopersos < ActiveRecord::Migration
       t.integer :age
       t.string :sexe
       t.string :ville
-      t.string :departement
+      t.integer :departement
       t.string :pays
 
       t.timestamps

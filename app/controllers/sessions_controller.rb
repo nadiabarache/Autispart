@@ -6,7 +6,8 @@ def new
     user = User.find_by(pseudo: params[:session][:pseudo].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to user
+      redirect_to infopersos_path
+      # redirect_to user
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'
