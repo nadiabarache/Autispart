@@ -1,6 +1,7 @@
 AutismeApp::Application.routes.draw do
   resources :infopersos do
     resources :infos  
+    resources :etats
   end
 
   get "users/new"

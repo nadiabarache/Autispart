@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306180145) do
+ActiveRecord::Schema.define(version: 20140306202932) do
+
+  create_table "etats", force: true do |t|
+    t.string   "humor"
+    t.text     "event"
+    t.integer  "infoperso_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "etats", ["infoperso_id"], name: "index_etats_on_infoperso_id"
 
   create_table "infopersos", force: true do |t|
     t.string   "pseudo"
